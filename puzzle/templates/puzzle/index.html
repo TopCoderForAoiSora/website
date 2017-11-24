@@ -5,7 +5,7 @@
 {% block body %}
     <div class="row">
         <div class="col-sm-12">
-            <h1>All Puzzle</h1>
+            <h2>All Puzzle</h2>
         </div>
         {% for puzzle in all_puzzles %}
         <div class="col-sm-6 col-md-3">
@@ -14,9 +14,9 @@
                     <img src="https://i.ytimg.com/vi/xUMdMgUMHoY/maxresdefault.jpg" class="img-responsive">
                 </a>
                 <div class="caption">
-                    <h2>{{ puzzle.title }}</h2>
-                    <h2>Room: {{ puzzle.location }}</h2>
-                    <h2>Point: {{ puzzle.point }}</h2>
+                    <h3>{{ puzzle.title }}</h3>
+                    <h3>Room: {{ puzzle.location }}</h3>
+                    <h3>Point: {{ puzzle.point }}</h3>
                 </div>
             </div>
         </div>
