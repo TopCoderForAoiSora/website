@@ -1,0 +1,11 @@
+{% extends 'puzzle/base.html' %}
+
+{% block title %} Puzzle List {% endblock %}
+
+{% block body %}
+<ul>
+    {% for puzzle in all_puzzles %}
+        <li><a href="{% url 'puzzle:detail' puzzle.pk %}">{{ puzzle.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

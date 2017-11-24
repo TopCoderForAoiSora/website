@@ -1,0 +1,11 @@
+body{
+    background: white url("image/IMG_2105.JPG");
+}
+
+.navbar{
+    border-radius: 0;
+}
+
+.navbar-brand{
+    font-family: 'Satisfy', cursive;
+}

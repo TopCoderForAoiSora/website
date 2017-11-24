@@ -1,0 +1,12 @@
+{% extends 'puzzle/base.html' %}
+
+{% block title %} Puzzle Detail {% endblock %}
+
+{% block body %}
+
+    <h1>{{ puzzle.title }}</h1>
+    <h2>Room Number: {{ puzzle.location }}</h2>
+    <h3>Point: {{ puzzle.point }}</h3>
+    <p>{{ puzzle.content }}</p>
+
+{% endblock %}
