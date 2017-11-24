@@ -11,7 +11,7 @@ class Puzzle(models.Model):
     logo = models.CharField(max_length=250)
 
     def get_absolute_url(self):
-        return reverse('music:detail', kwargs={'pk': self.pk})
+        return reverse('puzzle:detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return str(self.location) + " - " + self.title + " - " + str(self.point)
