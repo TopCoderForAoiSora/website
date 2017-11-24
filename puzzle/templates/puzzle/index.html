@@ -3,11 +3,13 @@
 {% block title %} Puzzle List {% endblock %}
 
 {% block body %}
-    {% for puzzle in all_puzzles %}
-    <div class="col-sm-4 col-md-3">
-        <div class="thumbnail">
-            <a href="{% url 'puzzle:detail' puzzle.pk %}">{{ puzzle.title }}</a>
+    <div class="row">
+        {% for puzzle in all_puzzles %}
+        <div class="col-sm-4 col-md-3">
+            <div class="thumbnail">
+                <a href="{% url 'puzzle:detail' puzzle.pk %}">{{ puzzle.title }}</a>
+            </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 {% endblock %}
