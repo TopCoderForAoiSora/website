@@ -4,9 +4,15 @@
 
 {% block body %}
     <div class="row">
+        <div class="col-sm-12">
+            <h3>All Puzzle</h3>
+        </div>
         {% for puzzle in all_puzzles %}
         <div class="col-sm-4 col-md-3">
             <div class="thumbnail">
+                <a href="{% url 'puzzle:detail' puzzle.pk %}">
+                    <img src="https://i.ytimg.com/vi/xUMdMgUMHoY/maxresdefault.jpg" class="img-responsive">
+                </a>
                 <a href="{% url 'puzzle:detail' puzzle.pk %}">{{ puzzle.title }}</a>
             </div>
         </div>
