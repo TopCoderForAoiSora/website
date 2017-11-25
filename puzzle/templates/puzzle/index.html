@@ -3,35 +3,39 @@
 {% block title %} Puzzle List {% endblock %}
 
 {% block body %}
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Player Name</th>
-                <th>Solved Puzzle</th>
-                <th>Total Points</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Weijia Wang</td>
-                <td>9</td>
-                <td>150</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="alert alert-success" style="padding: 0 5px;">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Player Name</th>
+                    <th>Solved Puzzle</th>
+                    <th>Total Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Weijia Wang</td>
+                    <td>9</td>
+                    <td>150</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <div class="row">
         {% for puzzle in all_puzzles %}
         <div class="col-xs-6 col-md-3">
-            <div class="thumbnail">
-                <a href="{% url 'puzzle:detail' puzzle.pk %}">
+            <a href="{% url 'puzzle:detail' puzzle.pk %}" style="text-decoration: none">
+                <div class="thumbnail">
                     <img src="https://i.ytimg.com/vi/xUMdMgUMHoY/maxresdefault.jpg" class="img-responsive">
-                </a>
-                <div class="caption">
-                    <p>{{ puzzle.title }}</p>
-                    <p>Room: {{ puzzle.location }}</p>
-                    <p>Point: {{ puzzle.point }}</p>
+                    <div class="caption">
+                        <h4>{{ puzzle.title }}</h4>
+                        <div class="row">
+                            <div class="col-xs-6">Room: {{ puzzle.location }}</div>
+                            <div class="col-xs-6">Point: {{ puzzle.point }}</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         {% endfor %}
     </div>
