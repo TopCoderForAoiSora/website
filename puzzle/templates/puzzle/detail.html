@@ -4,19 +4,20 @@
 
 {% block body %}
     <div class="row">
-        <div class="col-xs-12">
-            <img src="https://i.ytimg.com/vi/xUMdMgUMHoY/maxresdefault.jpg" class="img-responsive">
-        </div>
-        <div class="col-xs-12">
-            <h2 class="text-center" style="color: cornflowerblue;">{{ puzzle.title }}</h2>
-        </div>
-        <div class="col-xs-12">
+        <div class="col-xs-12 col-md-4">
+            <div>
+                <img src="https://i.ytimg.com/vi/xUMdMgUMHoY/maxresdefault.jpg" class="img-responsive">
+            </div>
+            <div>
+                <h2 class="text-center" style="color: cornflowerblue;">{{ puzzle.title }}</h2>
+            </div>
             <div class="row">
                 <div class="col-xs-6 text-center" style="color: plum"><p>Room: {{ puzzle.location }}</p></div>
                 <div class="col-xs-6 text-center" style="color: green"><p>Point: {{ puzzle.point }}</p></div>
             </div>
         </div>
-        <div class="col-xs-12">
+
+        <div class="col-xs-12 col-md-8">
             <div class="well well-sm">
                 <p>{{ puzzle.content }}</p>
             </div>
