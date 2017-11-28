@@ -61,8 +61,5 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    form = UserForm(request.POST or None)
-    context = {
-        "form": form,
-    }
-    return render(request, 'puzzle/login.html', context)
+    return HttpResponseRedirect('/')
+
