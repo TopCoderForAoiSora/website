@@ -1,0 +1,30 @@
+{% extends 'puzzle/base.html' %}
+{% block title %}Register{% endblock %}
+{% block register_active %}active{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Register for an Account</h3>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'puzzle/form-template.html' %}
+                        <div class="form-group">
+                            <div class="col-xs-offset-3 col-xs-9">
+                                <button class="btn btn-success" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="panel-footer">
+                    Already have an account? <a href="{% url 'puzzle:login' %}">Click here</a> to log in.
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -12,4 +12,8 @@ urlpatterns = [
     url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
 
     url(r'^add/$', views.CreatePuzzleView.as_view(), name='add-puzzle'),
+
+    url(r'^register/$', views.register, name='register'),
+    url(r'^login/$', views.login_user, name='login'),
+    url(r'^logout/$', views.logout_user, name='logout'),
 ]

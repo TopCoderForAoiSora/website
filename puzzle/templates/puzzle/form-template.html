@@ -1,9 +1,9 @@
 {% for field in form %}
     <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
+        <div class="col-xs-offset-3 col-xs-9">
             <span class="text-danger small">{{ field.errors }}</span>
         </div>
-        <label class="control-lable col-sm-2">{{ field.label_tag }}</label>
+        <label class="control-label col-xs-3">{{ field.label_tag }}</label>
         <div class="col-sm-10">{{ field }}</div>
     </div>
 {% endfor %}

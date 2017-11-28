@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{% block title %}Puzzle{% endblock %}</title>
+    <title>{% block title %} Puzzle {% endblock %}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load staticfiles %}
@@ -24,26 +24,13 @@
         </div>
 
         <div class="collapse navbar-collapse" id="topNavBar">
-            <!-- Puzzle button in Navbar -->
-            <ul class="nav navbar-nav">
-                <li class="{% block puzzle_active %}{% endblock %}">
-                    <a href="{% url 'puzzle:index' %}">
-                        <span class="glyphicon glyphicon-knight"></span> Puzzle
-                    </a>
-                </li>
-            </ul>
-
             <!-- Add puzzle button in Navbar -->
             <ul class="nav navbar-nav navbar-right">
-                <li class="{% block add_puzzle_active %}{% endblock %}">
-                    <a href="{% url 'puzzle:add-puzzle' %}">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Puzzle
-                    </a>
+                <li class="{% block register_active %}{% endblock %}">
+                    <a href="{% url 'puzzle:register' %}">Register</a>
                 </li>
-                <li class="">
-                    <a href="{% url 'puzzle:logout' %}">
-                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout
-                    </a>
+                <li class="{% block login_active %}{% endblock %}">
+                    <a href="{% url 'puzzle:login' %}">Log In</a>
                 </li>
             </ul>
         </div>
@@ -54,6 +41,7 @@
     {% block body %}
     {% endblock %}
 </div>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
