@@ -26,37 +26,39 @@ class CreatePuzzleView(CreateView):
 
 def register(request):
     form = UserForm(request.POST or None)
-    if not form.is_valid():
-        context = {
-            'form': form,
-        }
-        return render(request, 'puzzle/register.html', context)
+    if form.is_valid():
+        user = form.save(commit=False)
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password']
+        user.set_password(password)
+        user.save()
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                all_puzzles = Puzzle.objects.all()
+                return render(request, 'puzzle/index.html', {'all_puzzles': all_puzzles})
 
-    user = form.save(commit=False)
-    username = form.cleaned_data['username']
-    email = form.cleaned_data['email']
-    password = form.cleaned_data['password']
-    user.set_password(password)
-    user.save()
-    user = authenticate(username=username, password=password)
-    if user is not None:
-        login(request, user)
-        return render(request, 'puzzle/index.html')
+    context = {
+        'form': form,
+    }
+    return render(request, 'puzzle/register.html', context)
 
 
 def login_user(request):
     if request.method != "POST":
         return render(request, 'puzzle/login.html')
 
-    username = request.POST['username']
-    password = request.POST['password']
+    username = request.POST.get('username')
+    password = request.POST.get('password')
     user = authenticate(username=username, password=password)
 
     if user is None:
         return render(request, 'puzzle/login.html', {'error_message': 'Invalid login'})
 
     login(request, user)
-    return render(request, 'puzzle/index.html')
+    all_puzzles = Puzzle.objects.all()
+    return render(request, 'puzzle/index.html', {'all_puzzles': all_puzzles})
 
 
 def logout_user(request):
