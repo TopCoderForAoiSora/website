@@ -1,5 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
 from django.views import generic
 from django.views.generic.edit import CreateView
 from .forms import UserForm
@@ -44,8 +44,7 @@ def register(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                all_puzzles = Puzzle.objects.all()
-                return render(request, 'puzzle/index.html', {'all_puzzles': all_puzzles})
+                return HttpResponseRedirect('/')
 
     context = {
         'form': form,
@@ -65,8 +64,7 @@ def login_user(request):
         return render(request, 'puzzle/login.html', {'error_message': 'Invalid login'})
 
     login(request, user)
-    all_puzzles = Puzzle.objects.all()
-    return render(request, 'puzzle/index.html', {'all_puzzles': all_puzzles})
+    return HttpResponseRedirect('/')
 
 
 def logout_user(request):
