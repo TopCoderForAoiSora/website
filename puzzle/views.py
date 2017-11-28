@@ -6,6 +6,14 @@ from .forms import UserForm
 from .models import Puzzle
 
 
+def index(request):
+    if not request.user.is_authenticated():
+        return render(request, 'puzzle/login.html')
+
+    all_puzzles = Puzzle.objects.all()
+    return render(request, 'puzzle/index.html', {'all_puzzles': all_puzzles})
+
+
 class IndexView(generic.ListView):
     template_name = 'puzzle/index.html'
     context_object_name = 'all_puzzles'
