@@ -1,4 +1,4 @@
-{% extends 'puzzle/base.html' %}
+{% extends 'puzzle/base_visitor.html' %}
 {% block title %}Register{% endblock %}
 {% block register_active %}active{% endblock %}
 
@@ -7,7 +7,7 @@
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <h3>Register for an Account</h3>
+                    <h3>Register for an Account</h3><br>
                     {% if error_message %}
                         <p><strong>{{ error_message }}</strong></p>
                     {% endif %}
