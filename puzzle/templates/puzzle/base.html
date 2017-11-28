@@ -35,11 +35,13 @@
 
             <!-- Add puzzle button in Navbar -->
             <ul class="nav navbar-nav navbar-right">
-                <li class="{% block add_puzzle_active %}{% endblock %}">
-                    <a href="{% url 'puzzle:add-puzzle' %}">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Puzzle
-                    </a>
-                </li>
+                {% if user.is_superuser %}
+                    <li class="{% block add_puzzle_active %}{% endblock %}">
+                        <a href="{% url 'puzzle:add-puzzle' %}">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Puzzle
+                        </a>
+                    </li>
+                {% endif %}
                 <li class="">
                     <a href="{% url 'puzzle:logout' %}">
                         <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout
