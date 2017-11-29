@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
 
 
 class Puzzle(models.Model):
@@ -15,3 +16,13 @@ class Puzzle(models.Model):
 
     def __str__(self):
         return self.location + " - " + self.title + " - " + str(self.point)
+
+
+class PlayerGameHistory(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    score = models.PositiveSmallIntegerField()
+    solved = models.ManyToManyField(Puzzle)
+
+    def __str__(self):
+        return self.user.username + " - " + str(self.score)
+

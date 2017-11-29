@@ -3,7 +3,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView
 from .forms import UserForm
-from .models import Puzzle
+from .models import Puzzle, PlayerGameHistory
 
 
 class IndexView(ListView):
@@ -33,6 +33,10 @@ def register(request):
         user.set_password(password)
         user.save()
         user = authenticate(username=username, password=password)
+
+        playerGameHistory = PlayerGameHistory(user=user, score=0, solved=Puzzle.objects.all())
+        playerGameHistory.save()
+
         if user is not None:
             if user.is_active:
                 login(request, user)
