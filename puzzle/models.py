@@ -26,3 +26,11 @@ class PlayerGameHistory(models.Model):
     def __str__(self):
         return self.user.username + " - " + str(self.score)
 
+
+class TestManyToMany(models.Model):
+    score = models.PositiveSmallIntegerField()
+    solved = models.ManyToManyField(Puzzle)
+
+    def __str__(self):
+        return str(self.score)
+
