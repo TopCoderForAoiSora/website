@@ -99,4 +99,5 @@ ENV/
 .mypy_cache/
 
 db.sqlite3
-.idea/
+.idea/*.iws
+.idea/workspace.xml
