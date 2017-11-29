@@ -8,11 +8,16 @@ from .models import Puzzle, PlayerGameHistory
 
 class IndexView(ListView):
     template_name = 'puzzle/index.html'
-    context_object_name = 'all_puzzles'
+    context_object_name = 'all_puzzles_to_solve'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(IndexView, self).get_context_data(*args, **kwargs)
+        context['all_solved_puzzles'] = PlayerGameHistory.objects.get(user=self.request.user).solved.all()
+        return context
 
     def get_queryset(self):
-        return Puzzle.objects.all()
-
+        #return Puzzle.objects.all()
+        return PlayerGameHistory.objects.get(user=self.request.user).toSolve.all()
 
 class DetailView(DetailView):
     model = Puzzle
