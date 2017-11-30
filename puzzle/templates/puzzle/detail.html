@@ -20,7 +20,7 @@
             <div class="well well-sm">
                 <p>{{ puzzle.content }}</p>
             </div>
-            {% if is_not_solved %}
+            {% if not is_solved %}
             <div class="col-xs-12">
                 <form id="answer_form" class="form-horizontal" action="{% url 'puzzle:update' puzzle.id %}" method="POST" onSubmit="return ValidateAnswer();">
                     {% csrf_token %}

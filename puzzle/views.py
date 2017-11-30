@@ -26,7 +26,12 @@ class PuzzleDetailView(DetailView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(DetailView, self).get_context_data(*args, **kwargs)
-        context['is_not_solved'] = False
+        puzzle = self.get_object()
+
+        context['is_solved'] = False
+        if puzzle in PlayerGameHistory.objects.get(user=self.request.user).solved.all():
+            context['is_solved'] = True
+
         return context
 
 
