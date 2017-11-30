@@ -1,6 +1,5 @@
 {% extends 'puzzle/base.html' %}
-
-{% block title %} Puzzle Detail {% endblock %}
+{% block title %}Puzzle Detail{% endblock %}
 
 {% block body %}
     <div class="row">
@@ -22,7 +21,7 @@
                 <p>{{ puzzle.content }}</p>
             </div>
             <div class="col-xs-12">
-                <form id="answer_form" class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data" onSubmit="return ValidateAnswer();">
+                <form id="answer_form" class="form-horizontal" action="{% url 'puzzle:update' puzzle.id %}" method="POST" onSubmit="return ValidateAnswer();">
                     {% csrf_token %}
                     <p>Please entry your answer below: (Case insensitive)</p>
                     <div class="form-group col-xs-12">

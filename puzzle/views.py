@@ -30,6 +30,16 @@ class CreatePuzzleView(CreateView):
     fields = ['location', 'title', 'point', 'content', 'answer', 'logo']
 
 
+def update_user_game_history(request, puzzle_id):
+    player_answer = request.POST['player_answer']
+
+    player_game_history = PlayerGameHistory.objects.get(user=request.user)
+    solved_puzzle = Puzzle.objects.get(id=puzzle_id)
+    player_game_history.score += solved_puzzle.point
+    player_game_history.save()
+    return HttpResponseRedirect('/')
+
+
 def register(request):
     form = UserForm(request.POST or None)
     if form.is_valid():
