@@ -10,7 +10,7 @@ urlpatterns = [
     url(r'^$', login_required(views.IndexView.as_view()), name='index'),
 
     # /puzzle/79/
-    url(r'^(?P<pk>[0-9]+)/$', login_required(views.DetailView.as_view()), name='detail'),
+    url(r'^(?P<pk>[0-9]+)/$', login_required(views.PuzzleDetailView.as_view()), name='detail'),
 
     url(r'^add/$', permission_required('user.is_superuser')(views.CreatePuzzleView.as_view()), name='add-puzzle'),
 

@@ -19,7 +19,8 @@ class IndexView(ListView):
     def get_queryset(self):
         return PlayerGameHistory.objects.get(user=self.request.user).toSolve.all()
 
-class DetailView(DetailView):
+
+class PuzzleDetailView(DetailView):
     model = Puzzle
     template_name = 'puzzle/detail.html'
 
