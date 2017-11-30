@@ -24,6 +24,11 @@ class PuzzleDetailView(DetailView):
     model = Puzzle
     template_name = 'puzzle/detail.html'
 
+    def get_context_data(self, *args, **kwargs):
+        context = super(DetailView, self).get_context_data(*args, **kwargs)
+        context['is_not_solved'] = False
+        return context
+
 
 class CreatePuzzleView(CreateView):
     model = Puzzle
