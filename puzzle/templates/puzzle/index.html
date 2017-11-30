@@ -8,15 +8,17 @@
             <thead>
                 <tr>
                     <th>Player Name</th>
-                    <th>Solved Puzzle</th>
+                    <th>Puzzles To Solve</th>
+                    <th>Solved Puzzles</th>
                     <th>Total Points</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>{{ user.username }}</td>
-                    <td>9</td>
-                    <td>150</td>
+                    <td>{{ all_puzzles_to_solve.count }}</td>
+                    <td>{{ all_solved_puzzles.count }}</td>
+                    <td>{{ player_score }}</td>
                 </tr>
             </tbody>
         </table>

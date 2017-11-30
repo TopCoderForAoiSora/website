@@ -13,10 +13,10 @@ class IndexView(ListView):
     def get_context_data(self, *args, **kwargs):
         context = super(IndexView, self).get_context_data(*args, **kwargs)
         context['all_solved_puzzles'] = PlayerGameHistory.objects.get(user=self.request.user).solved.all()
+        context['player_score'] = PlayerGameHistory.objects.get(user=self.request.user).score
         return context
 
     def get_queryset(self):
-        #return Puzzle.objects.all()
         return PlayerGameHistory.objects.get(user=self.request.user).toSolve.all()
 
 class DetailView(DetailView):

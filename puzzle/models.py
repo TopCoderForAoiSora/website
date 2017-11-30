@@ -21,17 +21,9 @@ class Puzzle(models.Model):
 class PlayerGameHistory(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     score = models.PositiveSmallIntegerField()
-    solved = models.ManyToManyField(Puzzle, related_name="solved")
-    toSolve = models.ManyToManyField(Puzzle, related_name="toSolve")
+    solved = models.ManyToManyField(Puzzle, related_name="solved", blank=True)
+    toSolve = models.ManyToManyField(Puzzle, related_name="toSolve", blank=True)
 
     def __str__(self):
         return self.user.username + " - " + str(self.score)
-
-
-class TestManyToMany(models.Model):
-    score = models.PositiveSmallIntegerField()
-    solved = models.ManyToManyField(Puzzle)
-
-    def __str__(self):
-        return str(self.score)
 
