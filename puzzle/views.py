@@ -39,8 +39,8 @@ def register(request):
         user.save()
         user = authenticate(username=username, password=password)
 
-        playerGameHistory = PlayerGameHistory(user=user, score=0, solved=())
-        playerGameHistory.save()
+        player_game_history = PlayerGameHistory(user=user, score=0, solved=(), toSolve=Puzzle.objects.all())
+        player_game_history.save()
 
         if user is not None:
             if user.is_active:
