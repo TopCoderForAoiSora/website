@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
+{% load staticfiles %}
 <head>
     <title>{% block title %}Puzzle{% endblock %}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% load staticfiles %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="{% static 'puzzle/style.css' %}" />
 </head>

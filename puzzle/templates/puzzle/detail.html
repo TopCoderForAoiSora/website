@@ -8,11 +8,11 @@
                 <img src="https://i.ytimg.com/vi/xUMdMgUMHoY/maxresdefault.jpg" class="img-responsive">
             </div>
             <div>
-                <h2 class="text-center" style="color: cornflowerblue;">{{ puzzle.title }}</h2>
+                <h2 class="puzzle_title text-center">{{ puzzle.title }}</h2>
             </div>
             <div class="row">
-                <div class="col-xs-6 text-center" style="color: plum"><p>Room: {{ puzzle.location }}</p></div>
-                <div class="col-xs-6 text-center" style="color: green"><p>Point: {{ puzzle.point }}</p></div>
+                <div class="col-xs-6 text-center puzzle_location"><p>Room: {{ puzzle.location }}</p></div>
+                <div class="col-xs-6 text-center puzzle_point"><p>Point: {{ puzzle.point }}</p></div>
             </div>
         </div>
 
@@ -23,8 +23,8 @@
             <div class="col-xs-12">
                 <form id="answer_form" class="form-horizontal" action="{% url 'puzzle:update' puzzle.id %}" method="POST" onSubmit="return ValidateAnswer();">
                     {% csrf_token %}
-                    <p>Please entry your answer below:</p>
                     {% if not is_solved %}
+                        <p>Please entry your answer below:</p>
                         <div class="form-group col-xs-12">
                             <input id="player_answer" maxlength="30" name="player_answer" type="text">
                         </div>
@@ -32,6 +32,7 @@
                             <button id="submit_answer_btn" class="btn btn-success" type="submit">Submit</button>
                         </div>
                     {% else %}
+                        <p>The answer to this puzzle is:</p>
                         <div class="form-group col-xs-12">
                             <input maxlength="30" name="player_answer" type="text" value="{{ puzzle.answer }}" disabled="True">
                         </div>
