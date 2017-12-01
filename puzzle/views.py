@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, HttpResponseRedirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView
+from django.urls import reverse
 from .forms import UserForm
 from .models import Puzzle, PlayerGameHistory
 
@@ -50,6 +51,17 @@ class PuzzleDetailView(DetailView):
 class CreatePuzzleView(CreateView):
     model = Puzzle
     fields = ['location', 'title', 'point', 'content', 'answer', 'logo']
+
+    def get_success_url(self):
+        return reverse('puzzle:add_new_puzzle_to_all_player', args=(self.object.id,))
+
+
+def add_new_puzzle_to_all_player(request, puzzle_id):
+    new_puzzle = Puzzle.objects.get(pk=puzzle_id)
+    for player_game_history in PlayerGameHistory.objects.all():
+        player_game_history.toSolve.add(new_puzzle)
+
+    return HttpResponseRedirect('/')
 
 
 def update_user_game_history(request, puzzle_id):

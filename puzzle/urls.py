@@ -15,6 +15,10 @@ urlpatterns = [
     url(r'^(?P<puzzle_id>[0-9]+)/update/$', login_required(views.update_user_game_history), name='update'),
 
     url(r'^add/$', permission_required('user.is_superuser')(views.CreatePuzzleView.as_view()), name='add-puzzle'),
+    url(r'^add/(?P<puzzle_id>\d+)/$',
+        permission_required('user.is_superuser')(views.add_new_puzzle_to_all_player),
+        name='add_new_puzzle_to_all_player'),
+
 
     url(r'^register/$', views.register, name='register'),
     url(r'^login/$', views.login_user, name='login'),
