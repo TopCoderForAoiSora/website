@@ -1,8 +1,9 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, HttpResponseRedirect
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
+from django.core.urlresolvers import reverse_lazy
 from .forms import UserForm
 from .models import Puzzle, PlayerGameHistory
 
@@ -54,6 +55,16 @@ class CreatePuzzleView(CreateView):
 
     def get_success_url(self):
         return reverse('puzzle:add_new_puzzle_to_all_player', args=(self.object.id,))
+
+
+class UpdatePuzzleView(UpdateView):
+    model = Puzzle
+    fields = ['location', 'title', 'point', 'content', 'answer', 'logo']
+
+
+class DeletePuzzleView(DeleteView):
+    model = Puzzle
+    success_url = reverse_lazy('puzzle:index')
 
 
 def add_new_puzzle_to_all_player(request, puzzle_id):

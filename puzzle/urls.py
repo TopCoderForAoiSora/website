@@ -19,6 +19,13 @@ urlpatterns = [
         permission_required('user.is_superuser')(views.add_new_puzzle_to_all_player),
         name='add_new_puzzle_to_all_player'),
 
+    url(r'^update/(?P<pk>\d+)/$',
+        permission_required('user.is_superuser')(views.UpdatePuzzleView.as_view()),
+        name='update-puzzle'),
+
+    url(r'^delete/(?P<pk>\d+)/$',
+        permission_required('user.is_superuser')(views.DeletePuzzleView.as_view()),
+        name='delete-puzzle'),
 
     url(r'^register/$', views.register, name='register'),
     url(r'^login/$', views.login_user, name='login'),

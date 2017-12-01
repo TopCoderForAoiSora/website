@@ -13,6 +13,19 @@
             <div class="row">
                 <div class="col-xs-6 text-center puzzle_location"><p>Room: {{ puzzle.location }}</p></div>
                 <div class="col-xs-6 text-center puzzle_point"><p>Point: {{ puzzle.point }}</p></div>
+                {% if user.is_superuser %}
+                    <div class="col-xs-6 text-center">
+                        <button type="button" class="btn button-default">
+                            <a href="{% url 'puzzle:update-puzzle' puzzle.id %}">Update</a>
+                        </button>
+                    </div>
+                    <form action="{% url 'puzzle:delete-puzzle' puzzle.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn button-default">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </form>
+                {% endif %}
             </div>
         </div>
 
