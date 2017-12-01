@@ -12,8 +12,20 @@ class IndexView(ListView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(IndexView, self).get_context_data(*args, **kwargs)
-        context['all_solved_puzzles'] = PlayerGameHistory.objects.get(user=self.request.user).solved.all()
-        context['player_score'] = PlayerGameHistory.objects.get(user=self.request.user).score
+
+        player_game_history = PlayerGameHistory.objects.get(user=self.request.user)
+        all_solved_puzzles = player_game_history.solved.all()
+
+        context['all_solved_puzzles'] = all_solved_puzzles
+
+        player_curr_score = 0
+        for puzzle in all_solved_puzzles:
+            player_curr_score += puzzle.point
+        context['player_score'] = player_curr_score
+
+        player_game_history.score = player_curr_score
+        player_game_history.save()
+
         return context
 
     def get_queryset(self):
@@ -44,7 +56,6 @@ def update_user_game_history(request, puzzle_id):
     player_game_history = PlayerGameHistory.objects.get(user=request.user)
     solved_puzzle = Puzzle.objects.get(id=puzzle_id)
 
-    player_game_history.score += solved_puzzle.point
     player_game_history.solved.add(solved_puzzle)
     player_game_history.toSolve.remove(solved_puzzle)
 
