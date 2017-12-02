@@ -37,7 +37,7 @@
                 <form id="answer_form" class="form-horizontal" action="{% url 'puzzle:update' puzzle.id %}" method="POST" onSubmit="return ValidateAnswer();">
                     {% csrf_token %}
                     {% if not is_solved %}
-                        <p>Please entry your answer below:</p>
+                        <p>Please entry your answer below: (case insensitive)</p>
                         <div class="form-group col-xs-12">
                             <input id="player_answer" maxlength="30" name="player_answer" type="text">
                         </div>
@@ -60,7 +60,10 @@
 <script>
     function ValidateAnswer() {
         var player_answer = document.getElementById("player_answer");
-        if(player_answer.value == {{ puzzle.answer }}) {
+        var player_answer_str = player_answer.value;
+        var puzzle_answer_str = "{{ puzzle.answer }}";
+
+        if(player_answer_str.toUpperCase() == puzzle_answer_str.toUpperCase()) {
             alert("Congratulations!");
         } else {
             alert("Wrong answer!");
