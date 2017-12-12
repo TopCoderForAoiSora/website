@@ -101,3 +101,7 @@ ENV/
 db.sqlite3
 .idea/*.iws
 .idea/workspace.xml
+
+.settings/*
+.project
+.pydevproject
