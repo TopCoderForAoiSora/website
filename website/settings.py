@@ -56,7 +56,7 @@ ROOT_URLCONF = 'website.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'music/templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'music/templates', 'puzzle/templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
