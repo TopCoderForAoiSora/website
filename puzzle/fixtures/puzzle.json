@@ -1,0 +1,475 @@
+[
+{
+  "model": "puzzle.puzzle",
+  "pk": 5,
+  "fields": {
+    "location": "7",
+    "title": "Secret Shop",
+    "point": 50,
+    "content": "There is a secret shop hidden in this room. What is being sold there?",
+    "answer": "Asian Goods",
+    "logo": "https://roadtovrlive-5ea0.kxcdn.com/wp-content/uploads/2015/08/htv-vive-secret-shop-art.jpg"
+  }
+},
+{
+  "model": "puzzle.puzzle",
+  "pk": 6,
+  "fields": {
+    "location": "6",
+    "title": "Father of \"Dragon\"",
+    "point": 100,
+    "content": "Watch out !!! There is an escaped \"Dragon\" in this room. Find out who is the father of this \"Dragon\".",
+    "answer": "Andrew Lacey",
+    "logo": "http://stuffpoint.com/dragons/image/125086-dragons-escaped-dragon.jpg"
+  }
+},
+{
+  "model": "puzzle.puzzle",
+  "pk": 7,
+  "fields": {
+    "location": "5",
+    "title": "Fancy Manger?",
+    "point": 50,
+    "content": "This time, holy baby was born in a fancy \"manger\" -- a panelled room !! But what is missing in this room?",
+    "answer": "bed",
+    "logo": "https://assetsnffrgf-a.akamaihd.net/assets/m/1102014608/univ/art/1102014608_univ_cnt_2_xl.jpg"
+  }
+},
+{
+  "model": "puzzle.puzzle",
+  "pk": 8,
+  "fields": {
+    "location": "2a",
+    "title": "9 3/4 platform",
+    "point": 100,
+    "content": "Dear muggles, welcome to V&A museum! Are you ready for a magic adventure? Find out the secret door hidden in this room. Open it and discover the magic world behind it! How many magic worlds are there in total?",
+    "answer": "3",
+    "logo": "http://www.creativitypost.com/images/uploads/arts/platform-9-3-4.jpg"
+  }
+},
+{
+  "model": "puzzle.puzzle",
+  "pk": 9,
+  "fields": {
+    "location": "1",
+    "title": "Symmetric World",
+    "point": 100,
+    "content": "Life couldn't be more wonderful if everything is symmetric, right? However, life is always not perfect. Just like the symmetric map presented in this room.\r\n\r\nbed <-> bed, \r\nflower <-> flower, \r\npiano <-> ?",
+    "answer": "Telescope",
+    "logo": "http://www.canadiannaturephotographer.com/symmetry/_DSC4337.jpg"
+  }
+},
+{
+  "model": "puzzle.puzzle",
+  "pk": 10,
+  "fields": {
+    "location": "48a",
+    "title": "Karma",
+    "point": 50,
+    "content": "What a room of people! Among all of them, there is a dying evil man. What is his wife's name?",
+    "answer": "Sapphira",
+    "logo": "https://i.ytimg.com/vi/EU-VFVFwr4A/hqdefault.jpg"
+  }
+},
+{
+  "model": "puzzle.puzzle",
+  "pk": 11,
+  "fields": {
+    "location": "41",
+    "title": "Die for love",
+    "point": 50,
+    "content": "What a brave young lad! He managed to save his lover from ferocious beast but got himself killed. Find out which exhibition in this room has the most this beast in.",
+    "answer": "ceremonial cloth",
+    "logo": "https://natalialove13.files.wordpress.com/2010/08/poetry.jpg"
+  }
+},
+{
+  "model": "puzzle.puzzle",
+  "pk": 12,
+  "fields": {
+    "location": "42",
+    "title": "Sheldon wants to play train!",
+    "point": 50,
+    "content": "Christmas miracle does exist! Sheldon has got the best Christmas gift from Amy --- a solar-powered train!\r\nHe can not wait to set up everything and play his new toy on the biggest carpet in the room. However, according to the roommate agreement made with Leonard, how many hours can Sheldon play his train in a whole day?",
+    "answer": "8",
+    "logo": "https://i.ytimg.com/vi/jCNrs23r4DA/maxresdefault.jpg"
+  }
+},
+{
+  "model": "puzzle.puzzle",
+  "pk": 13,
+  "fields": {
+    "location": "44",
+    "title": "New Tomb Raider",
+    "point": 50,
+    "content": "When the dog is beaten, the lion is tamed! Unbelievably, Chinese god of war lost his job after the great war! To make a living, the general became a tomb raider and started tomb brick collection as his new hobby. How many tombs has he conducted a raid on?\r\n\r\n(Hint: If you cannot find it out, just ask him in person)",
+    "answer": "3",
+    "logo": "https://vignette.wikia.nocookie.net/laracroft/images/1/1a/Tomb_raider_2013.jpg/revision/latest/scale-to-width-down/670?cb=20150521212448"
+  }
+},
+{
+  "model": "puzzle.puzzle",
+  "pk": 14,
+  "fields": {
+    "location": "44",
+    "title": "Buddha's missing arms",
+    "point": 50,
+    "content": "Thousand-armed Buddha has lost the deity's power due to some missing arms. How many arms does Buddha have to borrow to reach out all those in need?",
+    "answer": "976",
+    "logo": "https://fthmb.tqn.com/aQL9Kt7Yc3axeyDhogWYy8PrNGU=/2001x1501/filters:fill(auto,1)/blue-buddha-58befb9a5f9b58af5c998090.jpg"
+  }
+},
+{
+  "model": "puzzle.puzzle",
+  "pk": 15,
+  "fields": {
+    "location": "50b",
+    "title": "The falling angel",
+    "point": 50,
+    "content": "God has a message for the Virgin. He sent an angel from heaven to deliver the message. However, the angel landed badly and got injured on his wings. The injury was so bad that the angel had to give up the wings and got scares left on the back. Who is this unlucky angel?",
+    "answer": "Gabriel",
+    "logo": "https://orig00.deviantart.net/deb9/f/2012/323/4/f/falling_angel_by_diegocapani-d5lil9w.jpg"
+  }
+},
+{
+  "model": "puzzle.puzzle",
+  "pk": 16,
+  "fields": {
+    "location": "64b",
+    "title": "The Unusual Suspect",
+    "point": 50,
+    "content": "Now is detective time! Sherlock and Watson have been called to the police station for a murder case. All suspects are standing in a line but there is one suspect unusual. Help Sherlock and Watson and nail this murder. What is the murder's name?",
+    "answer": "St Oswald",
+    "logo": "http://www.peppertop.com/greys/wp-content/uploads/2010/06/Usual_Suspects_Poster.jpg"
+  }
+},
+{
+  "model": "puzzle.puzzle",
+  "pk": 17,
+  "fields": {
+    "location": "46b",
+    "title": "Urgly naked guy comes to V&A",
+    "point": 50,
+    "content": "What a great news! Urgly naked guy from Friends has come to V&A! However, everyone is so shy that nobody in the room dares to look at him except one person. Who is the creator of this person?",
+    "answer": "Pietro Tacca",
+    "logo": "http://www.comedycentral.co.uk/sites/default/files/styles/image-w-1200-h-600-scale-crop/public/mtv_uk/arc/2014/05/27/f8bf5a4f-0745-45e6-b57a-3cc95f1bd3cf.jpg?itok=neQ-BYZn"
+  }
+},
+{
+  "model": "puzzle.puzzle",
+  "pk": 18,
+  "fields": {
+    "location": "10c",
+    "title": "Journey",
+    "point": 150,
+    "content": "The obvious missing piece in the pattern shows where the starting point of your journey is in the map --Geroanla. After a short break in Btginia, you next head to the City of flames. Over there, you have found out what you are looking for -- the hand of the King. Now, please turn around in reality, follow this path and return it to its naked King. Right now, who is guarding the naked King and Queen underneath them?",
+    "answer": "Wild Man",
+    "logo": "http://www.theworldofchinese.com/wp-content/uploads/2017/04/monkey-master.jpg"
+  }
+},
+{
+  "model": "puzzle.puzzle",
+  "pk": 19,
+  "fields": {
+    "location": "9",
+    "title": "Escaped beasts",
+    "point": 100,
+    "content": "Brave knight fought against beasts but got his head chopped unluckily. He only managed to kill one and the rest escaped to the next room. Two are unluckily caught and burried. Two are unluckily caged and turned gold. The rest two become watch dog. What are they watching?",
+    "answer": "Tabernacle",
+    "logo": "https://i.pinimg.com/736x/7e/77/dc/7e77dc0cae459f56fbedf964fbf73815--fire-element-demons.jpg"
+  }
+},
+{
+  "model": "puzzle.puzzle",
+  "pk": 20,
+  "fields": {
+    "location": "50c, 50d",
+    "title": "Separated Couple",
+    "point": 50,
+    "content": "The couple had a big fight, again! This time, they got separated and lived in different rooms. The lady took all her favourite gold tablewares and the guy got everything else left. However, there is one item (shape) existing in both rooms. Who is carrying this item?",
+    "answer": "St Antoninus",
+    "logo": "https://si.wsj.net/public/resources/images/WE-AA451_SEPARA_P_20130219180357.jpg"
+  }
+},
+{
+  "model": "puzzle.puzzle",
+  "pk": 21,
+  "fields": {
+    "location": "45",
+    "title": "Late for wedding!",
+    "point": 100,
+    "content": "Beautiful widow is going to get married to the samurai today afternoon. However, her \"sweet\" daughter partied too hard last night and over slept. Can she make it on time? Help her by answering: (last 4 digits of widow's museum No.) * (wedding time [24 hours format])",
+    "answer": "28110",
+    "logo": "https://thumbs.dreamstime.com/z/wedding-time-to-get-married-bride-groom-clock-concept-unhappy-undecided-red-alarm-making-decision-be-late-isolated-51343062.jpg"
+  }
+},
+{
+  "model": "puzzle.puzzle",
+  "pk": 22,
+  "fields": {
+    "location": "3",
+    "title": "The Clever King",
+    "point": 50,
+    "content": "Over the long history, there were thousands of kings. Only few of them were clever. Luckily, there is one in this room. What is his name?",
+    "answer": "Solomon",
+    "logo": "https://pbs.twimg.com/profile_images/751167769723432960/by3bkBue.jpg"
+  }
+},
+{
+  "model": "puzzle.playergamehistory",
+  "pk": 1,
+  "fields": {
+    "score": 1250,
+    "solved": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "toSolve": []
+  }
+},
+{
+  "model": "puzzle.playergamehistory",
+  "pk": 8,
+  "fields": {
+    "score": 0,
+    "solved": [],
+    "toSolve": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ]
+  }
+},
+{
+  "model": "puzzle.playergamehistory",
+  "pk": 9,
+  "fields": {
+    "score": 0,
+    "solved": [],
+    "toSolve": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ]
+  }
+},
+{
+  "model": "puzzle.playergamehistory",
+  "pk": 10,
+  "fields": {
+    "score": 30,
+    "solved": [
+      5,
+      8,
+      15
+    ],
+    "toSolve": [
+      6,
+      7,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ]
+  }
+},
+{
+  "model": "puzzle.playergamehistory",
+  "pk": 11,
+  "fields": {
+    "score": 170,
+    "solved": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "toSolve": [
+      22
+    ]
+  }
+},
+{
+  "model": "puzzle.playergamehistory",
+  "pk": 12,
+  "fields": {
+    "score": 800,
+    "solved": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      12,
+      13,
+      14,
+      16,
+      18,
+      22
+    ],
+    "toSolve": [
+      10,
+      11,
+      15,
+      17,
+      19,
+      20,
+      21
+    ]
+  }
+},
+{
+  "model": "puzzle.playergamehistory",
+  "pk": 13,
+  "fields": {
+    "score": 900,
+    "solved": [
+      5,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      19,
+      20,
+      22
+    ],
+    "toSolve": [
+      6,
+      18,
+      21
+    ]
+  }
+},
+{
+  "model": "puzzle.playergamehistory",
+  "pk": 14,
+  "fields": {
+    "score": 950,
+    "solved": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      19,
+      20,
+      22
+    ],
+    "toSolve": [
+      11,
+      18,
+      21
+    ]
+  }
+},
+{
+  "model": "puzzle.playergamehistory",
+  "pk": 15,
+  "fields": {
+    "score": 0,
+    "solved": [],
+    "toSolve": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ]
+  }
+}
+]
