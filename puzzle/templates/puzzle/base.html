@@ -10,59 +10,58 @@
     <link rel="stylesheet" type="text/css" href="{% static 'puzzle/style.css' %}" />
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <!-- Hamburger button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
-            <!-- website logo -->
-            <a class="navbar-brand" href="{% url 'puzzle:index' %}">金小胖</a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="topNavBar">
-            <!-- Puzzle button in Navbar -->
-            <ul class="nav navbar-nav">
-                <li class="{% block puzzle_active %}{% endblock %}">
-                    <a href="{% url 'puzzle:index' %}">
-                        <span class="glyphicon glyphicon-knight"></span> Puzzle
-                    </a>
-                </li>
-            </ul>
-
-            <!-- Add puzzle button in Navbar -->
-            <ul class="nav navbar-nav navbar-right">
-                {% if user.is_superuser %}
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <!-- Hamburger button -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+    
+                <!-- website logo -->
+                <a class="navbar-brand" href="{% url 'puzzle:index' %}">金小胖</a>
+            </div>
+    
+            <div class="collapse navbar-collapse" id="topNavBar">
+                <!-- Puzzle button in Navbar -->
+                <ul class="nav navbar-nav">
+                    <li class="{% block puzzle_active %}{% endblock %}">
+                        <a href="{% url 'puzzle:index' %}">
+                            <span class="glyphicon glyphicon-knight"></span> Puzzle
+                        </a>
+                    </li>
+                </ul>
+    
+                <!-- Add puzzle button in Navbar -->
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_superuser %}
                     <li class="{% block add_puzzle_active %}{% endblock %}">
                         <a href="{% url 'puzzle:add-puzzle' %}">
                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Puzzle
                         </a>
                     </li>
-                {% endif %}
-                <li class="">
-                    <a href="{% url 'puzzle:logout' %}">
-                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout
-                    </a>
-                </li>
-            </ul>
+                    {% endif %}
+                    <li class="">
+                        <a href="{% url 'puzzle:logout' %}">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
-
-<div class="container-fluid">
+    </nav>
+    
+    <div class="container-fluid">
     {% block body %}
     {% endblock %}
-</div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-{% block script %}
-{% endblock %}
-
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    
+    {% block script %}
+    {% endblock %}
 </body>
 </html>
