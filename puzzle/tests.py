@@ -4,6 +4,21 @@ from django.urls import reverse
 from .models import Puzzle, PlayerGameHistory
 
 # Create your tests here.
+class AccountActionTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user('Tester', 'Tester@gmail.com', 'TesterPassword')
+        player_game_history = PlayerGameHistory(user=self.user, score=0, solved=(), toSolve=Puzzle.objects.all())
+        player_game_history.save()
+        
+    
+    def test_login(self):
+        data = {'username': 'Tester', 'password': 'TesterPassword'}
+        response = self.client.post(reverse('puzzle:login'), data, follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.redirect_chain, [('/', 302)])
+
+
 class ListPuzzles(TestCase):
     def setUp(self):
         self.client = Client()

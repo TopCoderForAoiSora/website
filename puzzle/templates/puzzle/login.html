@@ -3,40 +3,40 @@
 {% block login_active %}active{% endblock %}
 
 {% block body %}
-    <div class="row">
-        <div class="col-xs-12 col-md-8">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <h3>Log In</h3>
-                    {% if error_message %}
-                        <p><strong>{{ error_message }}</strong></p>
-                    {% endif %}
+<div class="row">
+    <div class="col-xs-12 col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h3>Log In</h3>
+                {% if error_message %}
+                <p><strong>{{ error_message }}</strong></p>
+                {% endif %}
 
-                    <form class="form-horizontal" role="form" action="{% url 'puzzle:login' %}" method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <label class="control-label col-xs-3" for="id_username">Username:</label>
-                            <div class="col-xs-9">
-                                <input id="id_username" maxlength="30" name="username" type="text">
-                            </div>
+                <form class="form-horizontal" role="form" action="{% url 'puzzle:login' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="id_username">Username:</label>
+                        <div class="col-xs-9">
+                            <input id="id_username" maxlength="30" name="username" type="text">
                         </div>
-                        <div class="form-group">
-                            <label class="control-label col-xs-3" for="id_password">Password:</label>
-                            <div class="col-xs-9">
-                                <input id="id_password" maxlength="30" name="password" type="password">
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="id_password">Password:</label>
+                        <div class="col-xs-9">
+                            <input id="id_password" maxlength="30" name="password" type="password">
                         </div>
-                        <div class="form-group">
-                            <div class="col-xs-offset-3 col-xs-9">
-                                <button type="submit" class="btn btn-success">Submit</button>
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <button type="submit" class="btn btn-success">Submit</button>
                         </div>
-                    </form>
-                </div>
-                <div class="panel-footer">
-                    Don't have an account? <a href="{% url 'puzzle:register' %}">Click here</a> to register.
-                </div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-footer">
+                Don't have an account? <a href="{% url 'puzzle:register' %}">Click here</a> to register.
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
