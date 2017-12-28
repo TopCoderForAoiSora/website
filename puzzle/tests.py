@@ -40,6 +40,7 @@ class AccountLoginTest(AccountTest):
 
         self.assertFalse(response.context[0]['user'].is_authenticated())
         self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.redirect_chain, [])
         self.assertEqual(response.context[0]['error_message'], 'Invalid login')
 
 
@@ -54,6 +55,28 @@ class AccountLogoutTest(AccountTest):
         self.assertFalse(response.context[0]['user'].is_authenticated())
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.redirect_chain, [('/login/', 302)])
+
+
+class AccountRegisterTest(TestCase):
+
+    def setUp(self):
+        self.client = Client()
+
+    def test_register_succeed(self):
+        data = {'username': 'Tester', 'password': 'TesterPassword'}
+        response = self.client.post(reverse('puzzle:register'), data, follow=True)
+
+        self.assertTrue(response.context[0]['user'].is_authenticated())
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.redirect_chain, [('/', 302)])
+
+    def test_register_noUsername(self):
+        data = {'password': 'TesterPassword'}
+        response = self.client.post(reverse('puzzle:register'), data, follow=True)
+
+        self.assertFalse(response.context[0]['user'].is_authenticated())
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.redirect_chain, [])
 
 
 class AccountActionTest(TestCase):

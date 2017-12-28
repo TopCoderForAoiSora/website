@@ -104,9 +104,7 @@ def register(request):
                 login(request, user)
                 return HttpResponseRedirect('/')
 
-    context = {
-        'form': form,
-    }
+    context = {'form': form}
     return render(request, 'puzzle/register.html', context)
 
 
