@@ -11,14 +11,14 @@ class AccountTest(TestCase):
     def setUp(self):
         self.client = Client()
 
-        aNewUser = User.objects.create_user('Tester', 'Tester@gmail.com', 'TesterPassword')
-        player_game_history = PlayerGameHistory(user=aNewUser, score=0, solved=(), toSolve=Puzzle.objects.all())
+        self.user = User.objects.create_user('Tester', 'Tester@gmail.com', 'TesterPassword')
+        player_game_history = PlayerGameHistory(user=self.user, score=0, solved=(), toSolve=Puzzle.objects.all())
         player_game_history.save()
 
 
 class AccountLoginTest(AccountTest):
 
-    def test_login_success(self):
+    def test_login_succeed(self):
         data = {'username': 'Tester', 'password': 'TesterPassword'}
         response = self.client.post(reverse('puzzle:login'), data, follow=True)
 
@@ -41,6 +41,19 @@ class AccountLoginTest(AccountTest):
         self.assertFalse(response.context[0]['user'].is_authenticated())
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context[0]['error_message'], 'Invalid login')
+
+
+class AccountLogoutTest(AccountTest):
+
+    def setUp(self):
+        self.client.login(username='Tester', password='TesterPassword')
+
+    def test_logout_succeed(self):
+        response = self.client.get(reverse('puzzle:logout'), follow=True)
+
+        self.assertFalse(response.context[0]['user'].is_authenticated())
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.redirect_chain, [('/login/', 302)])
 
 
 class AccountActionTest(TestCase):
