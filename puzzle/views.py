@@ -1,10 +1,8 @@
-from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import HttpResponseRedirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
 from django.core.urlresolvers import reverse_lazy
-from .forms import UserForm
 from .models import Puzzle, PlayerGameHistory
 
 
@@ -67,6 +65,13 @@ class DeletePuzzleView(DeleteView):
     success_url = reverse_lazy('puzzle:index')
 
 
+def init_user_game_history(request):
+    player_game_history = PlayerGameHistory(user=request.user, score=0, solved=(), toSolve=Puzzle.objects.all())
+    player_game_history.save()
+
+    return HttpResponseRedirect('/')
+
+
 def add_new_puzzle_to_all_player(request, puzzle_id):
     new_puzzle = Puzzle.objects.get(pk=puzzle_id)
     for player_game_history in PlayerGameHistory.objects.all():
@@ -84,46 +89,4 @@ def update_user_game_history(request, puzzle_id):
 
     player_game_history.save()
     return HttpResponseRedirect('/')
-
-
-def register(request):
-    form = UserForm(request.POST or None)
-    if form.is_valid():
-        user = form.save(commit=False)
-        username = form.cleaned_data['username']
-        password = form.cleaned_data['password']
-        user.set_password(password)
-        user.save()
-        user = authenticate(username=username, password=password)
-
-        player_game_history = PlayerGameHistory(user=user, score=0, solved=(), toSolve=Puzzle.objects.all())
-        player_game_history.save()
-
-        if user is not None:
-            if user.is_active:
-                login(request, user)
-                return HttpResponseRedirect('/')
-
-    context = {'form': form}
-    return render(request, 'puzzle/register.html', context)
-
-
-def login_user(request):
-    if request.method != "POST":
-        return render(request, 'puzzle/login.html')
-
-    username = request.POST.get('username')
-    password = request.POST.get('password')
-    user = authenticate(username=username, password=password)
-
-    if user is None:
-        return render(request, 'puzzle/login.html', {'error_message': 'Invalid login'})
-
-    login(request, user)
-    return HttpResponseRedirect('/')
-
-
-def logout_user(request):
-    logout(request)
-    return HttpResponseRedirect('/login/')
 

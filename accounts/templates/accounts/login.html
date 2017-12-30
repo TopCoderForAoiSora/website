@@ -1,4 +1,4 @@
-{% extends 'puzzle/base_visitor.html' %}
+{% extends 'accounts/base_visitor.html' %}
 {% block title %}Log In{% endblock %}
 {% block login_active %}active{% endblock %}
 
@@ -12,7 +12,7 @@
                 <p><strong>{{ error_message }}</strong></p>
                 {% endif %}
 
-                <form class="form-horizontal" role="form" action="{% url 'puzzle:login' %}" method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" role="form" action="{% url 'accounts:login' %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="id_username">Username:</label>
@@ -34,7 +34,7 @@
                 </form>
             </div>
             <div class="panel-footer">
-                Don't have an account? <a href="{% url 'puzzle:register' %}">Click here</a> to register.
+                Don't have an account? <a href="{% url 'accounts:register' %}">Click here</a> to register.
             </div>
         </div>
     </div>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{% block title %} Puzzle {% endblock %}</title>
+    <title>{% block title %}Accounts{% endblock %}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load staticfiles %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'puzzle/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/style.css' %}" />
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -20,17 +20,16 @@
             </button>
 
             <!-- website logo -->
-            <a class="navbar-brand" href="{% url 'puzzle:index' %}">金小胖</a>
+            <a class="navbar-brand" href="{% url 'accounts:login' %}">金小胖</a>
         </div>
 
         <div class="collapse navbar-collapse" id="topNavBar">
-            <!-- Add puzzle button in Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <li class="{% block register_active %}{% endblock %}">
-                    <a href="{% url 'puzzle:register' %}">Register</a>
+                    <a href="{% url 'accounts:register' %}">Register</a>
                 </li>
                 <li class="{% block login_active %}{% endblock %}">
-                    <a href="{% url 'puzzle:login' %}">Log In</a>
+                    <a href="{% url 'accounts:login' %}">Log In</a>
                 </li>
             </ul>
         </div>
@@ -41,7 +40,6 @@
     {% block body %}
     {% endblock %}
 </div>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

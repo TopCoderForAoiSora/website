@@ -1,0 +1,15 @@
+a {
+    text-decoration: none;
+}
+
+.puzzle_title {
+    color: cornflowerblue;
+}
+
+.puzzle_location {
+    color: plum;
+}
+
+.puzzle_point {
+    color: green;
+}

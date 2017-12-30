@@ -13,6 +13,8 @@ urlpatterns = [
 
     url(r'^(?P<puzzle_id>[0-9]+)/update/$', login_required(views.update_user_game_history), name='update'),
 
+    url(r'^initUserGameHistory/$', login_required(views.init_user_game_history), name='init_UGH'),
+
     url(r'^add/$', permission_required('user.is_superuser')(views.CreatePuzzleView.as_view()), name='add-puzzle'),
     url(r'^add/(?P<puzzle_id>\d+)/$',
         permission_required('user.is_superuser')(views.add_new_puzzle_to_all_player),
@@ -25,8 +27,4 @@ urlpatterns = [
     url(r'^delete/(?P<pk>\d+)/$',
         permission_required('user.is_superuser')(views.DeletePuzzleView.as_view()),
         name='delete-puzzle'),
-
-    url(r'^register/$', views.register, name='register'),
-    url(r'^login/$', views.login_user, name='login'),
-    url(r'^logout/$', views.logout_user, name='logout'),
 ]
