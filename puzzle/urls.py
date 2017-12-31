@@ -15,7 +15,10 @@ urlpatterns = [
 
     url(r'^initUserGameHistory/$', login_required(views.init_user_game_history), name='init_UGH'),
 
-    url(r'^add/$', permission_required('user.is_superuser')(views.CreatePuzzleView.as_view()), name='add-puzzle'),
+    url(r'^add/$',
+        permission_required('user.is_superuser')(views.CreatePuzzleView.as_view()),
+        name='add_puzzle'),
+
     url(r'^add/(?P<puzzle_id>\d+)/$',
         permission_required('user.is_superuser')(views.add_new_puzzle_to_all_player),
         name='add_new_puzzle_to_all_player'),

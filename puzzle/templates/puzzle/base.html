@@ -38,7 +38,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     {% if user.is_superuser %}
                     <li class="{% block add_puzzle_active %}{% endblock %}">
-                        <a href="{% url 'puzzle:add-puzzle' %}">
+                        <a href="{% url 'puzzle:add_puzzle' %}">
                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Puzzle
                         </a>
                     </li>
