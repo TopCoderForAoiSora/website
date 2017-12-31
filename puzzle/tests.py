@@ -49,3 +49,18 @@ class CreateView(ViewTest):
         created_puzzle = Puzzle.objects.get(title='TestPuzzle')
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response.url, '/add/' + str(created_puzzle.pk) + '/')
+
+    def test_create_puzzle_without_location(self):
+        data = {
+            'title': 'TestPuzzle',
+            'point': 10,
+            'content': 'This is a test puzzle',
+            'answer': 'No answer',
+            'logo': 'www.google.com'
+        }
+        request = self.getPostRequest('puzzle:add_puzzle', data)
+        response = CreatePuzzleView.as_view()(request)
+
+        created_puzzle = Puzzle.objects.all()
+        self.assertEqual(response.status_code, 200)
+        self.assertQuerysetEqual(created_puzzle, [])
